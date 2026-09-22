@@ -392,7 +392,11 @@ body {
 /* ============ RESPONSIVE ============ */
 @media (max-width: 600px) {
     .script-title {
-        font-size: 2rem;
+        font-size: 2rem;        
+    }
+
+    .antes{
+        margin-top: 40%;
     }
 
     .flower-icon {
