@@ -1,0 +1,478 @@
+/* ============ VARIABLES ============ */
+:root {
+    --yellow-soft: #fff9e6;
+    --yellow-light: #ffeaa7;
+    --yellow-main: #fdc500;
+    --yellow-dark: #d4a017;
+    --yellow-warm: #ffd60a;
+    --text-dark: #4a3f1f;
+    --text-soft: #7a6a3a;
+    --white: #ffffff;
+}
+
+/* ============ GENERAL ============ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--yellow-soft) 0%, var(--yellow-light) 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ============ PÉTALOS ANIMADOS ============ */
+.petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    top: -10%;
+    font-size: 1.5rem;
+    animation: fall linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ============ PANTALLAS ============ */
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    overflow-y: auto;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.screen.active {
+    display: flex;
+    opacity: 1;
+}
+
+.screen-content {
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ============ TÍTULOS ============ */
+.script-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.hint {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* ============ FLOR ICON ============ */
+.flower-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.bouquet {
+    font-size: 7rem;
+    margin-bottom: 25px;
+    animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+/* ============ CARTA ============ */
+.letter {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.final-letter {
+    text-align: left;
+    padding: 25px 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    border-left: 4px solid var(--yellow-main);
+    box-shadow: 0 8px 30px rgba(212, 160, 23, 0.1);
+    font-size: 0.98rem;
+    line-height: 1.9;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--yellow-dark);
+    margin-bottom: 30px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* ============ BOTÓN PRINCIPAL ============ */
+.btn-main {
+    background: var(--yellow-main);
+    color: var(--text-dark);
+    border: none;
+    padding: 16px 45px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(253, 197, 0, 0.4);
+    margin-top: 15px;
+}
+
+.btn-main:hover:not(:disabled) {
+    background: var(--yellow-warm);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(253, 197, 0, 0.6);
+}
+
+.btn-main:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ============ TARJETAS DE MOTIVOS ============ */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.flip-card {
+    perspective: 1000px;
+    height: 160px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-shadow: 0 8px 25px rgba(212, 160, 23, 0.2);
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, var(--yellow-main) 0%, var(--yellow-warm) 100%);
+    font-size: 2.5rem;
+}
+
+.flip-card-back {
+    background: var(--white);
+    transform: rotateY(180deg);
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--text-dark);
+    line-height: 1.5;
+    border: 2px solid var(--yellow-light);
+}
+
+/* ============ FLORES ============ */
+.flowers-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.flower-option {
+    font-size: 3.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: grayscale(50%);
+    opacity: 0.6;
+}
+
+.flower-option:hover {
+    transform: scale(1.2) rotate(10deg);
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.flower-option.selected {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.3);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.flower-option.used {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.flower-message {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    min-height: 60px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.flower-message.show {
+    opacity: 1;
+}
+
+/* ============ SOBRE ============ */
+.envelope {
+    width: 200px;
+    height: 140px;
+    margin: 30px auto;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--yellow-main);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(253, 197, 0, 0.4);
+}
+
+.envelope-icon {
+    font-size: 3rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: var(--yellow-dark);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.5s ease;
+    transform-origin: top;
+    z-index: 2;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+/* ============ SORPRESA FINAL ============ */
+.final-surprise {
+    display: none;
+    margin-top: 20px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.final-surprise.show {
+    display: block;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.qr-container {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 20px 0;
+    box-shadow: 0 10px 40px rgba(212, 160, 23, 0.3);
+}
+
+.qr-container img {
+    display: block;
+    width: 220px;
+    height: 220px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 600px) {
+    .script-title {
+        font-size: 2rem;
+    }
+
+    .flower-icon {
+        font-size: 4rem;
+    }
+
+    .bouquet {
+        font-size: 5rem;
+    }
+
+    .letter {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .final-letter {
+        font-size: 0.9rem;
+        padding: 20px 15px;
+    }
+
+    .signature {
+        font-size: 1.5rem;
+    }
+
+    .btn-main {
+        padding: 14px 35px;
+        font-size: 0.95rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .flip-card {
+        height: 140px;
+    }
+
+    .flip-card-front {
+        font-size: 2rem;
+    }
+
+    .flip-card-back {
+        font-size: 0.75rem;
+        padding: 10px;
+    }
+
+    .flower-option {
+        font-size: 2.8rem;
+    }
+
+    .qr-container img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* ============ GIF DE FLORES ============ */
+.gif-container {
+    margin: 25px auto;
+    max-width: 320px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(212, 160, 23, 0.3);
+    background: white;
+    padding: 10px;
+}
+
+.gif-container iframe {
+    display: block;
+    border-radius: 20px;
+    width: 100%;
+    height: 400px;
+}
+
+@media (max-width: 600px) {
+    .gif-container {
+        max-width: 250px;
+    }
+    .gif-container iframe {
+        height: 320px;
+    }
+}

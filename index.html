@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para Jazmín 🌼</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Pétalos de fondo -->
+    <div class="petals" id="petals"></div>
+
+    <!-- ============ PANTALLA 1: PORTADA ============ -->
+    <section class="screen active" id="screen1">
+      <div class="screen-content">
+        <div class="flower-icon">🌼</div>
+        <h1 class="script-title">Para ti,<br />mi flor amarilla favorita</h1>
+        <p class="subtitle">Jazmín Alessandra García Ardela</p>
+        <button class="btn-main" onclick="nextScreen(2)">Haz clic aquí</button>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 2: CARTA DE FLORES ============ -->
+    <section class="screen" id="screen2">
+      <div class="screen-content">
+        <div class="bouquet">🌻</div>
+        <p class="letter">
+          Dicen que las flores amarillas se regalan el 21 de septiembre<br />
+          para decir lo que a veces no nos atrevemos.<br /><br />
+          Hoy te las regalo yo.<br />
+          Pero no solo hoy, sino cada día que estoy contigo.
+        </p>
+        <button class="btn-main" onclick="nextScreen(3)">Continuar</button>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 3: MOTIVOS ============ -->
+    <section class="screen" id="screen3">
+      <div class="screen-content">
+        <h2 class="script-title">Razones por las que te elijo</h2>
+        <p class="hint">Toca cada tarjeta para descubrirlas</p>
+        <div class="cards-grid" id="cardsGrid"></div>
+        <button
+          class="btn-main"
+          id="btnMotivos"
+          disabled
+          onclick="nextScreen(4)"
+        >
+          Continuar
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 4: ELIGE UNA FLOR ============ -->
+    <section class="screen" id="screen4">
+      <div class="screen-content">
+        <h2 class="script-title">Elige una flor</h2>
+        <p class="hint">Cada una guarda un mensaje para ti</p>
+        <div class="flowers-grid" id="flowersGrid"></div>
+        <div class="flower-message" id="flowerMessage"></div>
+        <button
+          class="btn-main"
+          id="btnFlores"
+          disabled
+          onclick="nextScreen(5)"
+        >
+          Continuar
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 5: MENSAJE FINAL ============ -->
+    <section class="screen" id="screen5">
+      <div class="screen-content">
+        <h2 class="script-title">Antes de que te vayas...</h2>
+        <p class="letter final-letter">
+          Sé que eres mi ex.<br />
+          Sé que el tiempo, la distancia y las decisiones<br />
+          nos pusieron donde estamos hoy.<br /><br />
+
+          No te escribo para pedirte que vuelvas,<br />
+          ni para reabrir lo que ya cerramos.<br /><br />
+
+          Te escribo porque hoy, 21 de septiembre,<br />
+          quiero regalarte flores amarillas<br />
+          como se hace con alguien que fue importante.<br /><br />
+
+          Porque lo fuiste.<br />
+          Y porque, aunque ya no seas mía,<br />
+          sigues siendo una de las personas más bonitas<br />
+          que he conocido.<br /><br />
+
+          Estas flores son un "gracias"<br />
+          por todo lo que me enseñaste,<br />
+          y un "te deseo lo mejor" sincero, de verdad.<br /><br />
+
+          Ojalá la vida te dé todo lo que mereces.<br />
+          Yo, desde donde estoy, te deseo eso.
+        </p>
+        <p class="signature">— José Antonio</p>
+        <button class="btn-main" onclick="nextScreen(6)">Te quiero</button>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 6: PERSONA CON FLORES ============ -->
+    <section class="screen" id="screen6">
+      <div class="screen-content">
+        <h2 class="script-title">Y si pudiera...</h2>
+        <p class="letter">
+          Te entregaría estas flores en persona,<br />
+          con una sonrisa y sin esperar nada a cambio.
+        </p>
+        <div class="gif-container">
+          <iframe
+            src="https://tenor.com/embed/17923330387197286015"
+            width="100%"
+            height="400"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <button class="btn-main" onclick="nextScreen(7)">
+          Una última cosa
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ PANTALLA 7: SORPRESA FINAL ============ -->
+    <section class="screen" id="screen7">
+      <div class="screen-content">
+        <h2 class="script-title">Una última cosa...</h2>
+        <p class="hint">Toca el sobre para abrirlo</p>
+        <div class="envelope" id="envelope" onclick="openEnvelope()">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body">
+            <span class="envelope-icon">💌</span>
+          </div>
+        </div>
+
+        <div class="final-surprise" id="finalSurprise">
+          <p class="letter">
+            Estas canciones me recuerdan a ti.<br />
+            Escúchalas cuando quieras.<br /><br />
+            Con cariño, siempre.
+          </p>
+          <div class="qr-container">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://rivenie.github.io/floresAmarillas/canciones.html"
+              alt="QR Canciones"
+            />
+          </div>
+          <p class="hint">Escanea el código con tu celular 📱</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
