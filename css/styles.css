@@ -51,12 +51,15 @@ body {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
     }
+
     10% {
         opacity: 0.8;
     }
+
     90% {
         opacity: 0.8;
     }
+
     100% {
         transform: translateY(110vh) rotate(360deg);
         opacity: 0;
@@ -90,6 +93,9 @@ body {
     width: 100%;
     text-align: center;
     padding: 20px;
+    align-items: flex-start;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 /* ============ TÍTULOS ============ */
@@ -124,8 +130,15 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .bouquet {
@@ -135,8 +148,15 @@ body {
 }
 
 @keyframes sway {
-    0%, 100% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
 }
 
 /* ============ CARTA ============ */
@@ -368,6 +388,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -392,10 +413,10 @@ body {
 /* ============ RESPONSIVE ============ */
 @media (max-width: 600px) {
     .script-title {
-        font-size: 2rem;        
+        font-size: 2rem;
     }
 
-    .antes{
+    .antes {
         margin-top: 40%;
     }
 
@@ -476,6 +497,7 @@ body {
     .gif-container {
         max-width: 250px;
     }
+
     .gif-container iframe {
         height: 320px;
     }
